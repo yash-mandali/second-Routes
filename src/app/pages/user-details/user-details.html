@@ -1,0 +1,31 @@
+<!-- <h2>User Details</h2><br>
+<p><b>Name:</b>{{userData().name}}</p><br>
+<p><b>Age:</b>{{userData().age}}</p><br>
+<p><b>City:</b>{{userData().city}}</p>
+ -->
+<div class="details-container">
+    <h2>User Details</h2>
+<div class="back-container">
+    <button class="back-btn" routerLink="/user">
+        ← Back to Users
+    </button>
+</div>
+
+
+    <div class="user-card">
+        <div class="row">
+            <span class="label">Name</span>
+            <span class="value">{{ userData().name }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Age</span>
+            <span class="value">{{ userData().age }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">City</span>
+            <span class="value">{{ userData().city }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<h2>Contact</h2>
+<p>Email: contact@example.com</p>
+<p>Phone: +91 4141457541 </p>
+
+<!-- <hr>
+<li>{{loginform.value.name}}</li>
+<li>{{loginform.value.email}}</li>
+<li>{{loginform.value.password}}</li>
+<hr> -->
+
+<!-- Name: <input type="text" [formControl] = 'name'>
+    <br><br>
+    Email: <input type="email" [formControl] = 'email'>
+    <br><br>
+    <button (click)="login()">login</button>
+    <button (click)="reset()">reset</button> -->
+
+<form [formGroup]="loginform" (ngSubmit)="handlesubmit()" method="post">
+    Name: <input type="text" formControlName="name">
+    @if(name?.hasError('required') && name?.touched){
+    <span>*Name is required</span>
+    }
+    <br><br>
+
+
+    Email: <input type="email" formControlName="email">
+    @if(email?.hasError('required') && email?.touched){
+    <span>*email is required</span>
+    }
+    @if(email?.errors?.['email'] && email?.touched){
+    <span>*email is invalid</span>
+    }
+    <br><br>
+
+
+    password: <input type="password" formControlName="password">
+    @if(password?.hasError('required') && password?.touched){
+    <span>*password is required</span>
+    }
+    @if(password?.errors?.['minlength'] && password?.touched){
+    <span>*password is invalid</span>
+    }
+  
+        <br><br>
+        <button [disabled]="loginform.invalid">submit</button>
+        <button (click)="reset()">reset</button>
+</form>

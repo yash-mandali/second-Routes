@@ -1,0 +1,41 @@
+.not-found {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.not-found h1 {
+    font-size: 120px;
+    margin: 0;
+    color: #e53935;
+    letter-spacing: 6px;
+}
+
+.not-found h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.not-found p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 10px 22px;
+    background-color: #1976d2;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0d47a1;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,60 @@
+.details-container {
+    max-width: 420px;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+}
+
+.details-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.user-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px 26px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.row:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.value {
+    color: #222;
+}
+.back-container {
+    max-width: 420px;
+    margin: 0 auto 16px;
+}
+
+.back-btn {
+    background-color: transparent;
+    border: none;
+    color: #1976d2;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+    color: rgb(222, 57, 57);
+    transform: translateX(-3px);
+}
