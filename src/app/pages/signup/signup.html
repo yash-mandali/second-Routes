@@ -1,0 +1,53 @@
+<div class="table-container">
+    <div class="heading">
+        <h2>Create Account</h2>
+    </div>
+
+    <form class="form-card">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="userName" placeholder="username" [(ngModel)]="signupuser.userName" required />
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email" [(ngModel)]="signupuser.email" required />
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password" [(ngModel)]="signupuser.password" required />
+        </div>
+
+        <div class="role-container">
+            <button type="button" class="role-btn" [class.active]="signupuser.role === 'User'"
+                (click)="signupuser.role = 'User'">
+                <span>User</span>
+            </button>
+
+            <button type="button" class="role-btn" [class.active]="signupuser.role === 'Admin'"
+                (click)="signupuser.role = 'Admin'">
+                <span>Admin</span>
+            </button>
+        </div>
+
+
+        <!-- <div class="role-group">
+            <button class="role-btn" name="user" [(ngModel)]="signupuser.role" value="User" >
+                User
+            </button>
+            <button class="role-btn" name="admin" [(ngModel)]="signupuser.role" value="dmin">
+                Admin
+            </button> 
+        </div> -->
+
+        <div class="form-actions">
+            <button type="button" class="btn primary" (click)="signupUser()">
+                Sign Up
+            </button>
+        </div>
+
+        <!-- <p style="color: green">{{ message() }}</p> -->
+
+    </form>
+</div>

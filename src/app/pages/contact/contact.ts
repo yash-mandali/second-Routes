@@ -11,40 +11,26 @@ import { validate } from '@angular/forms/signals';
 })
 export class Contact {
   loginform = new FormGroup({
-    name: new FormControl('abc',[Validators.required]),
-    email: new FormControl('abc@gmail.com', [Validators.required,Validators.email]),
-    password: new FormControl('1234', [Validators.required,Validators.minLength(3)]),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    feedback: new FormControl('',[Validators.required,Validators.minLength(20)]),
   })
 
-  get name() {
-    return this.loginform.get("name");
-  }
   get email() {
     return this.loginform.get("email");
   }
-  get password() {
-    return this.loginform.get("password");
+  get feedback() {
+    return this.loginform.get("feedback");
   }
   
-  // name = new FormControl("")
-  // email = new FormControl("")
 
-  // login() {
-  //   this.name.setValue(this.name.value)
-  //   this.email.setValue(this.email.value)
-  //   console.log(this.name.value)
-  //   console.log(this.email.value)
-  // }
-
-  // reset() {
-  //   this.name.setValue("")
-  //   this.email.setValue("")
-  // }
 
   handlesubmit() {
     console.log(this.loginform.value);
   }
   reset() {
-    this.loginform.setValue({name:'',email:'',password:''})
+    this.loginform.setValue({email:'',feedback:''})
+  }
+  canDeactivate() {
+    return confirm("you want to leave this page?")
   }
 }

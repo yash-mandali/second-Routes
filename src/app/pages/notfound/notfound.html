@@ -3,5 +3,5 @@
     <h2>Page Not Found</h2>
     <p>The page you are looking for doesn’t exist or was moved.</p>
 
-    <a routerLink="/" class="btn">Go to Home</a>
+    <a routerLink="/" class="btn">{{loggedInUserRole() == "User" ?'Go to Home':'Go to Dashboard'}}</a>
 </div>

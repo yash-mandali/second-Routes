@@ -1,0 +1,46 @@
+<div class="table-container">
+    <div class="heading">
+        <h2>Login</h2>
+    </div>
+
+    <form class="form-card" (ngSubmit)="loginUser()">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email" [(ngModel)]="loginuser.email" />
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password" [(ngModel)]="loginuser.password" />
+        </div>
+        <div class="forgot-password">
+            <a routerLink="/forgot-password">Forgot Password?</a>
+        </div>
+
+
+        <div class="role-container">
+            <button type="button" class="role-btn" [class.active]="loginuser.role === 'User'"
+                (click)="loginuser.role = 'User'">
+                <span>User</span>
+            </button>
+        
+            <button type="button" class="role-btn" [class.active]="loginuser.role === 'Admin'"
+                (click)="loginuser.role = 'Admin'">
+                <span>Admin</span>
+            </button>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn primary">
+                Login
+            </button>
+        </div>
+        <div>
+
+        </div>
+
+
+        <!-- <p style="color: green">{{ message()}}</p> -->
+
+    </form>
+</div>

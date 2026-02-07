@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">second-routes</string>
+    <string name="title_activity_main">second-routes</string>
+    <string name="package_name">com.Angular.app</string>
+    <string name="custom_url_scheme">com.Angular.app</string>
+</resources>

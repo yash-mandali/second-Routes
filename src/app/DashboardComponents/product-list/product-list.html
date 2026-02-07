@@ -1,0 +1,56 @@
+<div class="table-container">
+
+
+    <div class="heading">
+        <h2>Product Management</h2>
+        <button class="btn primary" routerLink="/dashboard/add-products">Add Product</button>
+        <!-- <p style="color: red;">{{error()}}</p>
+        <button class="btn primary" (click)="submitForm()">
+            {{ updateId() ? 'Update User' : 'Add User' }}
+        </button> -->
+    </div>
+
+    <div class="table-wrapper">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>-</th>
+                
+                    <th>-</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (item of productsData(); track item.id) {
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>${{ item.price }}</td>
+            
+                    <td><a [routerLink]="'/dashboard/product-details/'+item.id" class="action-link">Details</a></td>
+                    <td><a class="action-link" (click)="deleteProductData(item)">Delete</a></td>
+                    <!-- <td>
+                        <a class="action-link" [routerLink]="['/user-details', item.id]">
+                            View
+                        </a>
+                    </td>
+                    <td>
+                        <a class="action-link edit" (click)="editUser(item)">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a class="action-link edit" (click)="deleteUser(item)">
+                            Delete
+                        </a>
+                    </td> -->
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

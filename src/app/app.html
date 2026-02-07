@@ -1,11 +1,41 @@
 <header class="header">
-  <h3 routerLink="/" >Router-App</h3>
-  <nav class="nav">
-    <a routerLink="/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <a routerLink="/user" routerLinkActive="active">User</a>
+  <h3 routerLink="/" tabindex="0">E-commerce</h3>
+
+  <!-- Hamburger -->
+  <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="{{ menuOpen }}" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav" [class.open]="menuOpen">
+
+    @if (loggedInUserRole() === "User") {
+    <a routerLink="products" routerLinkActive="active" (click)="closeMenu()">Products</a>
+    <a routerLink="about" routerLinkActive="active" (click)="closeMenu()">About</a>
+    <a routerLink="contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    <a routerLink="user" routerLinkActive="active" (click)="closeMenu()">User</a>
+    <a routerLink="chatAi" routerLinkActive="chatAi" (click)="closeMenu()">AI</a>
+    }@else {
+    <a routerLink="dashboard" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+    }
+
+
+    @if (userloggedin()) {
+    <a (click)="logout(); closeMenu()">Logout</a>
+    } @else {
+    <a routerLink="signup" routerLinkActive="active" (click)="closeMenu()">Signup</a>
+    <a routerLink="login" routerLinkActive="active" (click)="closeMenu()">Login</a>
+    }
   </nav>
 </header>
 
-<router-outlet></router-outlet>
+<div class="content">
+
+  <!-- <app-dashboard></app-dashboard> -->
+
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- AIzaSyDEYcTK3JJUDKDyfANrelh5hNe5xbXTWDI  -->

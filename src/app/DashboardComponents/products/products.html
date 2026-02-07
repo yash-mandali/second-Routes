@@ -1,0 +1,65 @@
+<div class="product-grid">
+
+    @for (product of productsData(); track product.id) {
+
+    <div class="product-card">
+
+        <!-- Image -->
+        <div class="image-box">
+            <img [src]="product.thumbnail" [alt]="product.title" />
+
+            @if( product.availabilityStatus == "In Stock"){
+            <span class="badge">{{ product.availabilityStatus }}</span>
+            }@else {
+            <span class="red-badge">{{ product.availabilityStatus }}</span>
+            }
+
+        </div>
+
+        <!-- Content -->
+        <div class="card-body">
+
+            <h3 class="title">{{ product.title }}</h3>
+            <p class="brand">{{ product.brand }} • {{ product.category }}</p>
+
+            <p class="description">
+                {{ product.description }}
+            </p>
+
+            <!-- Rating -->
+            <div class="rating">
+                ⭐ {{ product.rating }}
+                <span class="reviews">({{ product.reviews.length }} reviews)</span>
+            </div>
+
+            <!-- Price -->
+            <div class="price-row">
+                <span class="price">${{ product.price }}</span>
+                <span class="discount">
+                    {{ product.discountPercentage }}% OFF
+                </span>
+            </div>
+
+            <!-- Extra Info -->
+            <div class="meta">
+                <span>Stock: {{ product.stock }}</span>
+                <span>SKU: {{ product.sku }}</span>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <span class="shipping">{{ product.shippingInformation }}</span>
+                <button [routerLink]="'/product-details/'+product.id" class="btn">View Details</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    }
+</div>
+
+<div class="loading" *ngIf="!productsData()">
+    <div class="loader"></div>
+    <p>Loading product details…</p>
+</div>

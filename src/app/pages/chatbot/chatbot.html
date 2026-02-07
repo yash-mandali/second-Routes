@@ -1,0 +1,38 @@
+<h2 class="contact-title">Chat AI</h2>
+
+<div class="contact-form">
+
+    <div class="form-card chat-card">
+
+        <div class="chat-window" #chatWindow>
+
+            <div class="message bot">
+                Hello, Ask me anything!
+            </div>
+
+            <div class="message user" *ngFor="let msg of messages()" [ngClass]="msg.role">
+                <pre>{{ msg.text }}</pre>
+            </div>
+
+            <div class="message bot" *ngIf="loading()">
+                <span class="typing">
+                    <span></span><span></span><span></span>
+                </span>
+            </div>
+
+        </div>
+
+        <form (ngSubmit)="handlesubmit()" class="input-area">
+
+            <input type="text" class="form-control" placeholder="Type your message..." [(ngModel)]="prompt"
+                name="prompt" [disabled]="loading()" required />
+
+            <button class="btn btn-primary" type="submit" [disabled]="loading() || !prompt()">
+                Send
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

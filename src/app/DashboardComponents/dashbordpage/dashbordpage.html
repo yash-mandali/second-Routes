@@ -1,0 +1,102 @@
+<div class="dashboard">
+
+    <!-- KPI Cards -->
+    <div class="top">
+        <div class="card small">
+            <div class="kpi">
+                <span class="label">Users</span>
+                <span class="value">{{userData().length}}</span>
+                <span class="trend up">+12%</span>
+            </div>
+        </div>
+
+        <div class="card small">
+            <div class="kpi">
+                <span class="label">Orders</span>
+                <span class="value">342</span>
+                <span class="trend down">−3%</span>
+            </div>
+        </div>
+
+        <div class="card small">
+            <div class="kpi">
+                <span class="label">Revenue</span>
+                <span class="value">$18.4k</span>
+                <span class="trend up">+8%</span>
+            </div>
+        </div>
+
+        <div class="card small">
+            <div class="kpi">
+                <span class="label">Products</span>
+                <span class="value">{{productsData().length}}</span>
+            </div>
+        </div>
+
+        <div class="card small">
+            <div class="kpi">
+                <span class="label">Pending</span>
+                <span class="value">14</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle -->
+    <div class="middle">
+
+        <!-- Activity / Graph -->
+        <div class="left">
+            <div class="card medium">
+                <div class="section">
+                    <h4>Weekly Activity</h4>
+
+                    <div class="bars">
+                        <span style="height:40%"></span>
+                        <span style="height:70%"></span>
+                        <span style="height:55%"></span>
+                        <span style="height:85%"></span>
+                        <span style="height:60%"></span>
+                        <span style="height:75%"></span>
+                        <span style="height:50%"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="card medium">
+                <div class="section">
+                    <h4>Recent Orders</h4>
+                    <ul class="list">
+                        <li>#1024 – Completed</li>
+                        <li>#1023 – Pending</li>
+                        <li>#1022 – Completed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="right">
+            <div class="card tall">
+                <div class="section">
+                    <h4>Summary</h4>
+                    <p>Total sales today</p>
+                    <h2>$2,430</h2>
+                    <p class="muted">Updated 5 mins ago</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="bottom">
+        <div class="card medium">
+            <div class="section">
+                <h4>System Status</h4>
+                <p class="status ok">All services running normally</p>
+            </div>
+        </div>
+    </div>
+
+</div>

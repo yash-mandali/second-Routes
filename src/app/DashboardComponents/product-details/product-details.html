@@ -1,0 +1,55 @@
+<div class="details-wrapper" *ngIf="productsData() as p">
+
+    <!-- Image Section -->
+    <div class="image-section">
+        <img [src]="p.images" [alt]="p.title" />
+
+        <span class="badge" [class.out]="p.availabilityStatus !== 'In Stock'">
+            {{ p.availabilityStatus }}
+        </span>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+
+        <h1 class="title">{{ p.title }}</h1>
+        <p class="brand">{{ p.brand }} • {{ p.category }}</p>
+
+        <div class="rating">
+            ⭐ {{ p.rating }}
+            <span>({{ p.reviews.length }} reviews)</span>
+        </div>
+
+        <p class="description">{{ p.description }}</p>
+
+        <div class="price-row">
+            <span class="price">${{ p.price }}</span>
+            <span class="discount">{{ p.discountPercentage }}% OFF</span>
+        </div>
+
+        <div class="meta">
+            <span>Stock: {{ p.stock }}</span>
+            <span>SKU: {{ p.sku }}</span>
+            <span>Weight: {{ p.weight }}g</span>
+        </div>
+
+        <div class="info">
+            <p><b>Shipping:</b> {{ p.shippingInformation }}</p>
+            <p><b>Warranty:</b> {{ p.warrantyInformation }}</p>
+            <p><b>Return:</b> {{ p.returnPolicy }}</p>
+        </div>
+
+        <div class="actions">
+            <button (click)="goBack()" class="back-btn">⬅ Back</button>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Loading State -->
+<div class="loading" *ngIf="!productsData()">
+    <div class="loader"></div>
+    <p>Loading product details…</p>
+</div>

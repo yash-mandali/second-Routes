@@ -1,0 +1,69 @@
+<div class="form-card">
+    <button (click)="goBack()" class="btn primary">⬅ Back</button><br>
+    <h1>Add Products</h1>
+
+    <div class="form">
+        <label>Title</label>
+        <input class="input-field" type="string" [value]="title()" (input)="title.set($event.target.value)"
+            placeholder="title" />
+    </div><br>
+
+    <div class="form">
+        <label>Description </label>
+        <textarea class="input-field" type="text" [value]="description()" (change)="adddescription($event)"
+            placeholder="product Description"></textarea> 
+    </div><br>
+
+    <div class="form">
+        <label>Brand</label>
+        <input class="input-field" type="string" [value]="brand()" (input)="brand.set($event.target.value)"
+            placeholder="brand" />
+    </div><br>
+    
+    <div class="form-group">
+        <div class="form">
+            <label>category</label>
+            <select class="input-field" [value]="category()" (change)="updateCategory($event)">
+                <option value="">select</option>
+                <option value="beauty">beauty</option>
+                <option value="fragrances">fragrances</option>
+                <option value="furniture">furniture</option>
+                <option value="groceries">groceries</option>
+            </select>
+        </div><br>
+        
+        <div class="form">
+            <label>Price</label>
+            <input class="input-field" type="number" [value]="price()" (input)="price.set(+($event.target).value)"
+                placeholder="price" />
+        </div><br>
+    </div>
+
+    <div class="form">
+        <label>Discount</label>
+        <input class="input-field" type="number" [value]="discountPercentage()" (input)="discountPercentage.set(+($event.target).value)"
+            placeholder="discount" />
+    </div><br>
+    
+
+    <div class="form">
+        <label>Image URL</label>
+        <input class="input-field" type="string" [value]="images()" (input)="setSingleImage($event)"
+            placeholder="Image URL" />
+    </div><br>
+
+    <div class="form">
+        <label>Thumbnail URL</label>
+        <input class="input-field" type="string" [value]="thumbnail()" (input)="thumbnail.set($event.target.value)" placeholder=" Thumbnail URL" />
+    </div><br>
+    
+</div>
+
+<button class="btn primary" (click)="submitForm()">Add Product</button>
+
+<div>
+    @for (product of productsData(); track product.id) {
+    <!-- {{product.title}} - {{product.price}}<br> -->
+    }
+
+</div>
