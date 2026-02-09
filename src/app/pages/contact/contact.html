@@ -42,16 +42,16 @@
 
         <div class="form-group">
             <label for="feedback" class="form-label">Feedback</label>
-            <textarea id="feedback" name = "feedback" class="form-control textarea-control" formControlName="feedback" rows="4"
+            <textarea id="feedback" name = "message" class="form-control textarea-control" formControlName="message" rows="4"
                 placeholder="Share your thoughts or questions..."></textarea>
 
-            @if (feedback?.hasError('required') && feedback?.touched) {
+            @if (message?.hasError('required') && message?.touched) {
             <small class="error-text">Feedback is required.</small>
             }
-            @if (feedback?.hasError('minlength') && feedback?.touched) {
+            @if (message?.hasError('minlength') && message?.touched) {
             <small class="error-text">
                 Feedback should be at least
-                {{ feedback?.errors?.['minlength']?.requiredLength }} characters.
+                {{ message?.errors?.['minlength']?.requiredLength }} characters.
             </small>
             }
         </div>
