@@ -42,7 +42,6 @@ export class AuthService {
     const decode: any = jwtDecode(token);
 
     return (decode.role || decode['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'])
-    
   }
 
   

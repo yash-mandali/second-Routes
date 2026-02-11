@@ -9,7 +9,7 @@ import { UserService } from '../../services/user-service';
   styleUrl: './dashbordpage.css',
 })
 export class Dashbordpage {
-  userData: any = signal('')
+  userData: any = signal('')  
   productsData: any = signal('');
   // orders = 247;          // final value
   // animatedOrders = 0;

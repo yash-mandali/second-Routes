@@ -22,7 +22,7 @@ export class Chatbot {
 
   @ViewChild('chatWindow') chatWindow!: ElementRef;
 
-  constructor(private chatbot: Chatbotservice) {}
+  constructor(private chatbot: Chatbotservice) { }
 
   handlesubmit() {
 
@@ -49,13 +49,13 @@ export class Chatbot {
           res?.candidates?.[0]?.content?.parts?.[0]?.text
           || "No response";
 
-        /* Add Bot Message */
+        /* Add Bot Message */ 
         this.messages.update(m => [
           ...m,
           { role: 'bot', text: aiText }
         ]);
         console.log(res.error.message);
-        
+
         this.loading.set(false);
 
         this.scrollBottom();
@@ -65,7 +65,7 @@ export class Chatbot {
 
         this.messages.update(m => [
           ...m,
-          { role: 'bot', text: '❌ Something went wrong.' }
+          { role: 'bot', text: 'Api not found' }
         ]);
 
         this.loading.set(false);

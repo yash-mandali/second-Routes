@@ -25,46 +25,69 @@
 
 <h2 class="contact-title">Contact</h2>
 
-<form class="contact-form" [formGroup]="loginform" (ngSubmit)="handlesubmit()" novalidate>
+<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="handleSubmit()" novalidate>
     <div class="form-card">
-       
+
+        <!-- Email -->
         <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" type="email" name="email" class="form-control" formControlName="email" placeholder="you@example.com" />
+            <label class="form-label">Email</label>
+
+            <input type="email" class="form-control" formControlName="email" placeholder="you@example.com" />
 
             @if (email?.hasError('required') && email?.touched) {
-            <small class="error-text">Email is required.</small>
-            }
-            @if (email?.hasError('email') && email?.touched) {
-            <small class="error-text">Please enter a valid email address.</small>
-            }
-        </div>
-
-        <div class="form-group">
-            <label for="feedback" class="form-label">Feedback</label>
-            <textarea id="feedback" name = "message" class="form-control textarea-control" formControlName="message" rows="4"
-                placeholder="Share your thoughts or questions..."></textarea>
-
-            @if (message?.hasError('required') && message?.touched) {
-            <small class="error-text">Feedback is required.</small>
-            }
-            @if (message?.hasError('minlength') && message?.touched) {
             <small class="error-text">
-                Feedback should be at least
-                {{ message?.errors?.['minlength']?.requiredLength }} characters.
+                Email is required
+            </small>
+            }
+
+            @if (email?.hasError('email') && email?.touched) {
+            <small class="error-text">
+                Enter valid email
             </small>
             }
         </div>
 
+        <!-- Message -->
+        <div class="form-group">
+            <label class="form-label">Feedback</label>
 
+            <textarea class="form-control textarea-control" formControlName="message" rows="4"
+                placeholder="Write your message..."></textarea>
+
+            @if (message?.hasError('required') && message?.touched) {
+            <small class="error-text">
+                Message required
+            </small>
+            }
+
+            @if (message?.hasError('minlength') && message?.touched) {
+            <small class="error-text">
+                Minimum
+                {{ message?.errors?.['minlength']?.requiredLength }}
+                characters
+            </small>
+            }
+        </div>
+
+        <!-- Buttons -->
         <div class="button-row">
-            <button type="submit" class="btn btn-primary" [disabled]="loginform.invalid">
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid || isLoading">
+                @if (isLoading) {
+                <span class="loader"></span>
+                Sending...
+                } @else {
                 Submit
+                }
             </button>
 
-            <button type="button" class="btn btn-secondary" (click)="reset()">
+            <!-- Reset -->
+            <button type="button" class="btn btn-secondary" (click)="reset()" [disabled]="isLoading">
                 Reset
             </button>
+
         </div>
+
     </div>
 </form>
